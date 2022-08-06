@@ -1,4 +1,4 @@
-import styles from './Links.module.css';
+import styles from 'src/components/Links/Links.module.css';
 
 const ITEMS = [
   {
@@ -27,7 +27,7 @@ const ITEMS = [
 export function Links() {
   return (
     <div className={styles.grid}>
-      {ITEMS.map((item,index) => {
+      {ITEMS.map((item, index) => {
         return (
           <a key={index} href={item.href} className={styles.card}>
             <h2>{item.title}</h2>
