@@ -4,13 +4,26 @@ import { Footer } from 'src/components/Footer';
 import { Main } from 'src/components/Main';
 import { Header } from 'src/components/Header';
 import Link from 'next/link';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 export default function Home() {
   const handleClick = useCallback((e) => {
-    console.log(e.target);
+    alert('click!!');
     e.preventDefault();
   }, []);
+
+  useEffect(() => {
+    console.log('マウント時');
+    // マウント時の処理
+    document.body.style.backgroundColor = 'lightblue';
+
+    return () => {
+      console.log('アンマウント時');
+      // アンマウント時の処理
+      document.body.style.backgroundColor = '';
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
